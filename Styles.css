@@ -82,3 +82,177 @@ html {
     margin: 0;
   }
 }
+
+
+/* Custom Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Color Scheme */
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2c3e50;
+  --text-color: #333;
+}
+
+/* Text Styles */
+h1, h2, h3 {
+  color: var(--primary-color);
+}
+
+p {
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Button Styles */
+.button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Animations */
+.fadeIn {
+  animation: fadeIn ease 1s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Responsive Grid */
+@media only screen and (max-width: 1200px) {
+  /* ... */
+}
+
+@media only screen and (max-width: 900px) {
+  /* ... */
+}
+
+/* Existing styles */
+/* ... */
+
+/* Image Hover Effects */
+.img-hover-zoom {
+  transition: transform .2s ease-in-out;
+}
+
+.img-hover-zoom:hover {
+  transform: scale(1.1);
+}
+
+/* Form Styling */
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 20px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Card Layout */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  padding: 16px;
+  text-align: center;
+}
+
+/* Fixed Footer */
+.footer-fixed {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+}
+
+/* Transitions */
+a {
+  transition: color .3s ease;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+/* Accessibility */
+.high-contrast-text {
+  color: black;
+  background-color: yellow;
+}
+
+/* Loading Spinner */
+.spinner {
+  border: 5px solid var(--primary-color);
+  border-radius: 50%;
+  border-top: 5px solid #fff;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Tooltips */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Position above the text */
+  left: 50%;
+  margin-left: -60px; /* Use half of the width to center */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
+
