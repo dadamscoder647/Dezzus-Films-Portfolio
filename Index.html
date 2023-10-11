@@ -58,8 +58,6 @@
     </ul>
   </nav>
 
-
-
   <!-- Welcome Section -->
   <section id="welcome">
     <h2>Welcome to Dezzus Films</h2>
@@ -81,17 +79,61 @@
 
   <!-- Pricing Section -->
   <section id="pricing">
-    <h2>Pricing</h2>
-    <p>High-quality photography doesn't have to break the bank. Check out my competitive pricing options.</p>
-    <!-- Add pricing details here -->
-  </section>
+  <h2>Pricing Packages</h2>
+  <div class="pricing-card">
+    <h3>Basic Package</h3>
+    <p class="price">$100</p>
+    <ul>
+      <li>1 Hour Session</li>
+      <li>10 Edited Photos</li>
+      <li>Online Gallery</li>
+    </ul>
+    <button>Book Now</button>
+  </div>
+
+  <div class="pricing-card">
+    <h3>Standard Package</h3>
+    <p class="price">$200</p>
+    <ul>
+      <li>2 Hour Session</li>
+      <li>20 Edited Photos</li>
+      <li>Online Gallery</li>
+      <li>1 Print</li>
+    </ul>
+    <button>Book Now</button>
+  </div>
+
+  <div class="pricing-card">
+    <h3>Premium Package</h3>
+    <p class="price">$300</p>
+    <ul>
+      <li>3 Hour Session</li>
+      <li>30 Edited Photos</li>
+      <li>Online Gallery</li>
+      <li>3 Prints</li>
+      <li>1 Canvas Print</li>
+    </ul>
+    <button>Book Now</button>
+  </div>
+</section>
 
   <!-- Contact Section -->
   <section id="contact">
-    <h2>Contact</h2>
-    <p>Interested in booking a photo shoot? Get in touch!</p>
-    <!-- Add contact details or a form here -->
-  </section>
+  <h2>Contact Me</h2>
+  <form action="/submit-form" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="4" required></textarea>
+
+    <input type="submit" value="Send">
+  </form>
+</section>
+
 
   <!-- Footer -->
   <footer>
@@ -100,4 +142,39 @@
 
 </body>
 </html>
+<section id="home-intro">
+  <!-- Content will go here -->
+
+</section>
+<section id="home-intro">
+  <h1>Welcome to Dezzus Films</h1>
+  <p>Your journey to captivating photography starts here.</p>
+</section>
+
+<section id="about-me">
+  <h2>About Me</h2>
+  <img src="path/to/your/image.jpg" alt="Your Headshot" />
+  <p>I am passionate about photography and have been capturing moments for over 10 years...</p>
+</section>
+
+<section id="portfolio">
+  <h2>My Portfolio</h2>
+  <div class="portfolio-item">
+    <img src="path/to/image1.jpg" alt="Description of image 1" />
+    <p>Description for image 1.</p>
+  </div>
+  <div class="portfolio-item">
+    <img src="path/to/image2.jpg" alt="Description of image 2" />
+    <p>Description for image 2.</p>
+  </div>
+  <!-- Add more portfolio items -->
+</section>
+
+
+<section id="contact">
+  <h2>Contact Me</h2>
+  <p>Email: Danieladams747@icloud.com</p>
+  <p>Phone: +1 608 432 8287</p>
+  <!-- You can also add a contact form here -->
+</section>
 
