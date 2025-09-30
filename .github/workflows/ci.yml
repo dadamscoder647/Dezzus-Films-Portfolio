@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      SECRET_KEY: test-secret
+      JWT_SECRET_KEY: test-jwt-secret
+      DATABASE_URL: sqlite:///test.db
+      UPLOAD_DIR: workspace/uploads
+      FLASK_APP: app:create_app
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -r requirements-dev.txt
+
+      - name: Prepare database and run tests
+        run: |
+          mkdir -p workspace/uploads
+          flask db upgrade || (flask db init && flask db migrate -m "ci init" && flask db upgrade)
+          pytest -q
