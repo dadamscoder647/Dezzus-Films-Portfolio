@@ -3,7 +3,7 @@ from typing import Optional
 
 from flask import Flask
 
-from extensions import db
+from extensions import db, migrate
 from routes.admin import admin_bp
 from routes.auth import auth_bp
 from routes.billing import billing_bp
@@ -26,6 +26,7 @@ def create_app(config: Optional[dict] = None) -> Flask:
         app.config.update(config)
 
     db.init_app(app)
+    migrate.init_app(app, db)
     register_auth_error_handlers(app)
 
     app.register_blueprint(auth_bp)
@@ -34,14 +35,9 @@ def create_app(config: Optional[dict] = None) -> Flask:
     app.register_blueprint(listings_bp)
     app.register_blueprint(billing_bp)
 
-    @app.before_first_request
-    def _create_tables():
-        db.create_all()
-
     return app
 
 
 if __name__ == "__main__":
     application = create_app()
     application.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
-
