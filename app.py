@@ -8,6 +8,7 @@ from extensions import db, migrate
 from routes.admin import admin_bp
 from routes.auth import auth_bp
 from routes.billing import billing_bp
+from routes.health import health_bp
 from routes.listings import listings_bp
 from routes.verify import verify_bp
 from services.jwt_utils import register_auth_error_handlers
@@ -35,6 +36,7 @@ def create_app(config: Optional[dict] = None) -> Flask:
 
     os.makedirs(app.config["UPLOAD_DIR"], exist_ok=True)
 
+    app.register_blueprint(health_bp)
     app.register_blueprint(auth_bp)
     app.register_blueprint(verify_bp)
     app.register_blueprint(admin_bp)
