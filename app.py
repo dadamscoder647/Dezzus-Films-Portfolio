@@ -3,6 +3,7 @@ from typing import Optional
 
 from flask import Flask
 
+from config import ALLOWED_UPLOAD_TYPES, MAX_UPLOAD_SIZE, UPLOAD_DIR
 from extensions import db, migrate
 from routes.admin import admin_bp
 from routes.auth import auth_bp
@@ -20,6 +21,9 @@ def create_app(config: Optional[dict] = None) -> Flask:
         "SQLALCHEMY_TRACK_MODIFICATIONS": False,
         "SECRET_KEY": os.environ.get("SECRET_KEY", "dev-secret-key"),
         "JWT_ALGORITHM": os.environ.get("JWT_ALGORITHM", "HS256"),
+        "UPLOAD_DIR": os.environ.get("UPLOAD_DIR", UPLOAD_DIR),
+        "MAX_UPLOAD_SIZE": MAX_UPLOAD_SIZE,
+        "ALLOWED_UPLOAD_TYPES": ALLOWED_UPLOAD_TYPES,
     }
     app.config.update(default_config)
     if config:
@@ -28,6 +32,8 @@ def create_app(config: Optional[dict] = None) -> Flask:
     db.init_app(app)
     migrate.init_app(app, db)
     register_auth_error_handlers(app)
+
+    os.makedirs(app.config["UPLOAD_DIR"], exist_ok=True)
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(verify_bp)
