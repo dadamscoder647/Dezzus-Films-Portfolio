@@ -1,8 +1,14 @@
 import pytest
 
+import werkzeug
+
 from app import create_app
 from extensions import db
 from models import User
+
+
+if not hasattr(werkzeug, "__version__"):
+    werkzeug.__version__ = "3"
 
 
 @pytest.fixture()

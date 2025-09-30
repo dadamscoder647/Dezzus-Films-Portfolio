@@ -34,7 +34,7 @@ def test_create_listing_requires_employer_context(client, applicant_user):
         json={"title": "Role"},
         headers=auth_header_for(applicant_user),
     )
-    assert response.status_code == 400
+    assert response.status_code == 403
 
 
 def test_create_listing_assigns_employer(client, employer_user):

@@ -17,7 +17,11 @@ class User(db.Model, TimestampMixin):
     listings = db.relationship("Listing", back_populates="employer", lazy=True)
     applications = db.relationship("Application", back_populates="applicant", lazy=True)
     visa_documents = db.relationship(
-        "VisaDocument", back_populates="user", lazy=True, cascade="all, delete-orphan"
+        "VisaDocument",
+        back_populates="user",
+        lazy=True,
+        cascade="all, delete-orphan",
+        foreign_keys="VisaDocument.user_id",
     )
 
     def to_dict(self) -> Dict[str, Any]:
@@ -34,7 +38,7 @@ class User(db.Model, TimestampMixin):
     def mark_verified(self) -> None:
         """Mark the user as verified and active."""
 
-        self.verification_status = "verified"
+        self.verification_status = "approved"
         self.is_active = True
 
     def mark_unverified(self, note: Optional[str] = None) -> None:

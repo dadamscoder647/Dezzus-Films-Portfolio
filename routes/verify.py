@@ -127,7 +127,7 @@ def approve_document(document_id: int):
     admin_user: User = g.current_user
 
     document.mark_reviewed("approved", reviewer_id=admin_user.id)
-    document.user.verification_status = "verified"
+    document.user.verification_status = "approved"
 
     db.session.commit()
 
